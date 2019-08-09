@@ -1,0 +1,20 @@
+#content {
+    overflow:auto;
+    width: 600px;
+    background: #67d5ff;
+}
+
+#left, #right {
+    width: 46%;
+    margin:5px;
+    padding: 1em;
+    background: white;
+}
+
+#left  { float:left;  }
+#right { float:right; }
+
+.error {
+    background-color: #f7ecec;
+    border: 1px solid #ff0000;
+}

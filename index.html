@@ -2,9 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Title</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
+<datalist id="cities">
+    <option value="Красноярск">
+    <option value="Новосибирск">
+    <option value="Ачинск">
+    <option value="Кемерово">
+    <option value="Саратов">
+</datalist>
+
+<div class="container">
+    <button id="hide">Показать</button>
+    <button id="show">Скрыть</button>
+    <!--    Первая ФОРМА -->
+    <div id="form-data" style="display: block">
+        <h1>Служба подключений</h1>
+        <form action="" method="post" name="test" onsubmit="valid()">
+            <label for="city">Выберете город:</label>
+            <input type="text" name="city" placeholder="Город" id="city" class="form-control" list="cities"/>
+
+            <label for="name">ФИО</label>
+            <input type="text" name="name" placeholder="ФИО" id="name" class="form-control"><br/>
+
+            <label for="address">Адресс</label>
+            <input type="text" name="address" placeholder="Адресс" id="address" class="form-control"><br/>
+
+            <label for="phone">Телефонный номер</label>
+            <input type="text" name="phone" placeholder="Телефон" id="phone" class="form-control"><br/>
+
+            <label for="telephone2 ">Дополнительный номер</label>
+            <input type="text" name="telephone2" placeholder="Телефонный номер" id="telephone2 "
+                   class="form-control"><br/>
+            <div>
+                <label for="telephone2 ">Причина обращения
+                    <textarea name="appeal" placeholder="Обращение..." class="form-control"></textarea>
+                </label>
+            </div>
+            <div>
+                <label for="telephone2 ">Дополнительный комментарий
+                    <textarea name="appeal" placeholder="Комментарий..." class="form-control"></textarea>
+                </label>
+            </div>
+            <div>
+                <input type="submit" value="Отправить" class="btn btn-success">
+                <button onclick="valid()" type="button" id="further" name="button" class="btn btn-success">Далее
+                </button>
+            </div>
+
+        </form>
+
+        <div><h1 id="error"></h1></div>
+        <div><h2 id="main"></h2></div>
+    </div>
+
+    <!--    Вторая  ФОРМА -->
+    <div id="form-service" style="display: none">
+        <h1>Служба подключений</h1>
+        <form action="" method="post" name="test" onsubmit="valid()">
+            <div id="content">
+                <div id="left">
+                    <div id="object1"><h2>Orion Express 550</h2></div>
+<!--                    <div id="object2"><h2>Orion Express 720</h2></div>-->
+                </div>
+
+                <div id="right">
+                    <div id="object3"><h2>Orion Express 940</h2></div>
+<!--                    <div id="object4"><h2>Orion Union 830</h2></div>-->
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="scrypt/scrypt.js"></script>
 </body>
 </html>
