@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<!--DATA-->
 <datalist id="cities">
     <option value="Красноярск">
     <option value="Новосибирск">
@@ -16,10 +17,31 @@
     <option value="Саратов">
 </datalist>
 
+<datalist id="rates">
+    <option value="Orion Express 550">
+    <option value="Orion Express 720">
+    <option value="Orion Express 940">
+    <option value="Orion Union 830">
+    <option value="Orion Union 1200">
+    <option value="Orion TV 750">
+    <option value="Orion TV 850">
+</datalist>
+
+<datalist id="cause-appeal">
+    <option value="Поменять тариф">
+    <option value="Не работает интернет">
+    <option value="Хочу подключиться">
+    <option value="Слишком дорого">
+    <option value="Прочее">
+</datalist>
+
 <div class="container">
-    <button id="hide">Показать</button>
-    <button id="show">Скрыть</button>
-    <!--    Первая ФОРМА -->
+    <button id="hide">Первое</button>
+    <button id="show">Второе</button>
+    <button id="rateShow">Третье</button>
+    <button id="finish">Завершить</button>
+
+    <!--  Первая ФОРМА -->
     <div id="form-data" style="display: block">
         <h1>Служба подключений</h1>
         <form action="" method="post" name="test" onsubmit="valid()">
@@ -60,24 +82,92 @@
         <div><h2 id="main"></h2></div>
     </div>
 
-    <!--    Вторая  ФОРМА -->
+    <!--  Вторая  ФОРМА -->
     <div id="form-service" style="display: none">
         <h1>Служба подключений</h1>
         <form action="" method="post" name="test" onsubmit="valid()">
             <div id="content">
-                <div id="left">
-                    <div id="object1"><h2>Orion Express 550</h2></div>
-<!--                    <div id="object2"><h2>Orion Express 720</h2></div>-->
+                <div class="wrapper">
+                    <div class="masonry">
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                        <div class="item">
+                            <div><H2>Orion Express 550</H2></div>
+                            <p>СКОРОСТЬ: 60 Мбит/с</p>
+                            <p>СКОРОСТЬ НОЧЬЮ: 100 Мбит/с</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div id="right">
-                    <div id="object3"><h2>Orion Express 940</h2></div>
-<!--                    <div id="object4"><h2>Orion Union 830</h2></div>-->
+                <label for="rate">Выберите тариф:</label>
+                <input type="text" name="rate" placeholder="Выберите тариф..." id="rate" class="form-control"
+                       list="rates"/>
+
+                <div>
+                    <input type="submit" value="Отправить" class="btn btn-success">
+                    <button onclick="sendRate()" type="button" id="further1" name="button" class="btn btn-success">Далее
+                    </button>
                 </div>
+
             </div>
 
         </form>
     </div>
+
+    <!--  Третья ФОРМА-->
+    <div id="rate-service" style="display: none">
+        <h1>HELLO</h1>
+
+        <h4> Вы ввели следующие данные: </h4>
+        <p> ФИО: <abbr id="name-data"></abbr></p>
+        <p> Город: <abbr id="city-data"></abbr></p>
+        <p> Адрес: <abbr id="address-data"></abbr></p>
+        <p> Контактный номер телефона : <abbr id="phone-data"></abbr></p>
+        <p> Причина обращения: <abbr id="appeal-data"></abbr></p>
+        <p> Комментарий: <abbr id="comment-data"></abbr></p>
+        <p> Выбранный тариф: <abbr id="tariff"></abbr></p>
+        <h2>Мы благодарим вас за обращение в нашу компанию </h2>
+
+    </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
