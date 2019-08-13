@@ -6,6 +6,10 @@ let phone = document.getElementById('phone');
 let error = document.getElementById('error');
 let further = document.getElementById('further');
 let rate = document.getElementById('rate');
+let appeal = document.getElementById('appeal');
+let comment = document.getElementById('comment')
+
+
 
 //Обработка события onChange
 function getId(id) {
@@ -16,9 +20,9 @@ function getId(id) {
     });
 }
 
-//Оработка отправки формы
+//Оработка вызова кнопки формы 1 "Далее"
 function valid() {
-    let phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; //XXX-XXX-XXXX
+    let phoned = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; //XXX-XXX-XXXX
 
     if (city.value === "") {
         error.textContent = 'Введите город';
@@ -35,7 +39,9 @@ function valid() {
         document.getElementById('address').classList.add('error');
         getId(address);
         return;
-    } else if (!phone.value.match(phoneno)) {
+    }
+
+    if (!phone.value.match(phoned)) {
         if (phone.value === "") {
             error.textContent = 'Введите телефон';
         } else {
@@ -46,17 +52,38 @@ function valid() {
         return;
     }
 
+    if (appeal.value === "") {
+        error.textContent = 'Введите обращение';
+        document.getElementById('appeal').classList.add('error');
+        getId(appeal);
+        return;
+    }
+
     error.textContent = 'Данные отправлены';
     formData.style.display = "none";
     formService.style.display = "block";
 
-
     array.set('city', city.value);
     array.set('name', name.value);
+    array.set('address', address.value);
+    array.set('phone', phone.value);
+    array.set('appeal', appeal.value);
+
+    if (comment.value !== '') {
+        array.set('comment', comment.value);
+    }
+
     console.log(array);
 
 }
 
+function checkPhone() {
+    let phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; //XXX-XXX-XXXX
+    if (phone.value.match(phoneno)) {
+        error.textContent = 'Проверьте заполненность данных телефона';
+        return;
+    }
+}
 
 let formData = document.getElementById('form-data');
 let formService = document.getElementById('form-service');
@@ -65,7 +92,6 @@ let show = document.getElementById("show");
 let hide = document.getElementById("hide");
 let rateShow = document.getElementById("rateShow");
 // let hide = document.getElementById("hideContent")
-
 
 hide.addEventListener("click", () => {
     formData.style.display = "block";
@@ -85,39 +111,56 @@ rateShow.addEventListener("click", () => {
     rateService.style.display = "block";
 });
 
-
-function transition(further) {
-    further.addEventListener("click", () => {
-        formData.style.display = "none";
-        formService.style.display = "block";
-    });
-}
-
 //Объявление переменных для вывода информацию в блоке service
 
 let nameData = document.getElementById('name-data');
 let cityData = document.getElementById('city-data');
 let addressData = document.getElementById('address-data');
+let phoneData = document.getElementById('phone-data');
 let appealData = document.getElementById('appeal-data');
 let commentData = document.getElementById('comment-data');
 let tariff = document.getElementById('tariff');
 
-function sendRate() {
-
+function sendForth() {
     array.set('rate', rate.value);
-    error.textContent = 'Данные отправлены';
+
     formData.style.display = "none";
     formService.style.display = "none";
     rateService.style.display = "block";
-    console.log(array);
 
+    addFieldText();
+}
 
+function sendBack() {
+    formData.style.display = "block";
+    formService.style.display = "none";
+    rateService.style.display = "none";
+}
+
+function sendComplete() {
+
+    array.clear();
+    fieldCleaning();
+
+    formData.style.display = "block";
+    formService.style.display = "none";
+    rateService.style.display = "none";
+
+}
+
+function addFieldText() {
     nameData.textContent = array.get('name');
     cityData.textContent = array.get('city');
     addressData.textContent = array.get('address');
-
-    appealData.textContent = array.get('appealData');
-    // commentData.textContent = array.get('rate');
+    phoneData.textContent = array.get('phone');
+    appealData.textContent = array.get('appeal');
     tariff.textContent = array.get('rate');
+    commentData.textContent = array.get('comment');
+}
 
+function fieldCleaning() {
+    let inputs = document.getElementsByTagName('input');
+    for (let input of inputs) {
+        input.value = '';
+    }
 }
