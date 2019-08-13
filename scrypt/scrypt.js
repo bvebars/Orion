@@ -121,6 +121,10 @@ let appealData = document.getElementById('appeal-data');
 let commentData = document.getElementById('comment-data');
 let tariff = document.getElementById('tariff');
 
+
+//Третья форма
+let emergencyClosure = document.getElementById('emergency-closure');
+
 function sendForth() {
     array.set('rate', rate.value);
 
@@ -137,14 +141,23 @@ function sendBack() {
     rateService.style.display = "none";
 }
 
+let failure = document.getElementById('failure');
+let commentFailure = document.getElementById('comment-failure');
+
 function sendComplete() {
+
+    array.set('failure', failure.value);
+    array.set('commentFailure', commentFailure.value);
+    //Тут должна быть реализация отправки данных
+
 
     array.clear();
     fieldCleaning();
 
-    formData.style.display = "block";
+    formData.style.display = "none";
     formService.style.display = "none";
     rateService.style.display = "none";
+    emergencyClosure.style.display = "block"
 
 }
 

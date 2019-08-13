@@ -35,13 +35,19 @@
     <option value="Прочее">
 </datalist>
 
+<datalist id="failures">
+    <option value="Обрыв связи">
+    <option value="Отказ">
+    <option value="Другое">
+</datalist>
+
 <div class="container">
 
     <button id="hide">Первое</button>
     <button id="show">Второе</button>
     <button id="rateShow">Третье</button>
     <button id="finish">Завершить</button>
-<!--    <h1>Служба подключений</h1>-->
+
     <!--  Первая ФОРМА -->
     <div id="form-data" style="display: block">
     <h2>Заполните форму</h2>
@@ -177,7 +183,6 @@
 
         <button onclick="sendComplete()" type="button" name="button" class="btn btn-success">
             Отправить заявку
-
         </button>
 
         <button onclick="sendComplete()" type="button" name="button" class="btn btn-danger">
@@ -188,7 +193,24 @@
             <h2 class="phrase-thanks">Мы благодарим вас за обращение в нашу компанию </h2>
         </div>
 
+    </div>
 
+    <!--Экстренное завершение-->
+    <div id="emergency-closure" style="display: none">
+        <h1>Завершение</h1>
+
+        <label for="failure">Причина завершения заявки</label>
+        <input type="text" name="failure" placeholder="Причина..." id="failure" list="failures" class="form-control"><br/>
+
+        <div>
+            <label for="telephone2 ">Дополнительный комментарий
+                <textarea name="comment" placeholder="Комментарий..." class="form-control" id="comment-failure"></textarea>
+            </label>
+        </div>
+
+        <button onclick="sendComplete()" type="button" name="button" class="btn btn-success">
+            Отправить заявку
+        </button>
 
     </div>
 
