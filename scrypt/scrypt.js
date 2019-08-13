@@ -145,11 +145,9 @@ let failure = document.getElementById('failure');
 let commentFailure = document.getElementById('comment-failure');
 
 function sendComplete() {
-
     array.set('failure', failure.value);
     array.set('commentFailure', commentFailure.value);
     //Тут должна быть реализация отправки данных
-
 
     array.clear();
     fieldCleaning();
@@ -158,7 +156,6 @@ function sendComplete() {
     formService.style.display = "none";
     rateService.style.display = "none";
     emergencyClosure.style.display = "block"
-
 }
 
 function addFieldText() {
