@@ -42,8 +42,7 @@
 </datalist>
 
 <div class="container">
-
-    <button id="hide">Первое</button>
+    <button id="hide" onclick="Form.gettingValueForm()">Первое</button>
     <button id="show">Второе</button>
     <button id="rateShow">Третье</button>
     <button id="finish">Завершить</button>
@@ -65,8 +64,8 @@
             <label for="phone">Телефонный номер</label>
             <input type="text" name="phone" placeholder="Телефон" id="phone" class="form-control"><br/>
 
-            <label for="telephone2 ">Дополнительный номер</label>
-            <input type="text" name="telephone2" placeholder="Телефонный номер" id="telephone2 "
+            <label for="phone2">Дополнительный номер</label>
+            <input type="text" name="phone2" placeholder="Телефонный номер" id="phone2"
                    class="form-control"><br/>
 
             <label for="appeal">Причина обращения</label>
@@ -74,12 +73,12 @@
                    class="form-control" list="appeals"><br/>
 
             <div>
-                <label for="telephone2 ">Дополнительный комментарий
+                <label for="comment">Дополнительный комментарий
                     <textarea name="comment" placeholder="Комментарий..." class="form-control" id="comment"></textarea>
                 </label>
             </div>
             <div>
-                <button onclick="valid()" type="button" id="further" name="button" class="btn btn-success">Далее
+                <button onclick="Form.gettingValueForm()" type="button" id="go-button" name="button" class="btn btn-success">Далее
                 </button>
                 <button onclick="sendComplete()" type="button" name="button" class="btn btn-danger">
                     Завершить
