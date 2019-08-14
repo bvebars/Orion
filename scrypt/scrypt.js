@@ -11,7 +11,6 @@ class Form {
     }
 
     gettingValueForm() {
-        // userData.clear();
         this.number = 0;
         let phoned = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; //XXX-XXX-XXXX
         for (let input of this.form) {
@@ -58,14 +57,7 @@ class Form {
         formService.style.display = "none";
         rateService.style.display = "block";
     }
-
-    static showFormService() {
-        formData.style.display = "none";
-        formService.style.display = "block";
-        rateService.style.display = "none";
-    }
 }
-
 
 let form1 = new Form(inputsFormData);
 let form2 = new Form(inputsFormService);
@@ -98,7 +90,6 @@ function cleanInput(id) {
     });
 }
 
-
 let nameData = document.getElementById('name-data');
 let cityData = document.getElementById('city-data');
 let addressData = document.getElementById('address-data');
@@ -109,7 +100,6 @@ let commentData = document.getElementById('comment-data');
 let tariff = document.getElementById('tariff');
 
 function addFieldText() {
-
     nameData.textContent = userData.get('name');
     cityData.textContent = userData.get('city');
     addressData.textContent = userData.get('address');
@@ -142,7 +132,6 @@ function sendComplete() {
     userData.set('failure', failure.value);
     userData.set('commentFailure', commentFailure.value);
     //Тут должна быть реализация отправки данных
-
     userData.clear();
     fieldCleaning();
 
