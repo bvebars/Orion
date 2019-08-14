@@ -78,7 +78,7 @@
                 </label>
             </div>
             <div>
-                <button onclick="Form.gettingValueForm()" type="button" id="go-button" name="button" class="btn btn-success">Далее
+                <button onclick="goFormService()" type="button" id="go-button" name="button" class="btn btn-success">Далее
                 </button>
                 <button onclick="sendComplete()" type="button" name="button" class="btn btn-danger">
                     Завершить
@@ -94,7 +94,7 @@
     <!--  Вторая  ФОРМА -->
     <div id="form-service" style="display: none">
         <h2>Выберите тариф</h2>
-        <form action="" method="post" name="test" onsubmit="valid()">
+        <form action="" method="post" name="test">
             <div id="content">
                 <div class="wrapper">
                     <div class="masonry">
@@ -152,7 +152,7 @@
                         <button onclick="sendBack()" type="button" id="back-button" name="button" class="btn btn-warning">
                             Назад
                         </button>
-                        <button onclick="sendForth()" type="button" id="further1" name="button" class="btn btn-success">
+                        <button onclick="goRateService()" type="button" id="further1" name="button" class="btn btn-success">
                             Далее
                         </button>
                         <button onclick="sendComplete()" type="button" name="button" class="btn btn-danger">
@@ -176,6 +176,7 @@
         <p> Город: <abbr id="city-data"></abbr></p>
         <p> Адрес: <abbr id="address-data"></abbr></p>
         <p> Контактный номер телефона : <abbr id="phone-data"></abbr></p>
+        <p> Дополнительный номер : <abbr id="phone-data-2"></abbr></p>
         <p> Причина обращения: <abbr id="appeal-data"></abbr></p>
         <p> Выбранный тариф: <abbr id="tariff"></abbr></p>
         <p> Комментарий: <abbr id="comment-data"></abbr></p><br/>
@@ -202,7 +203,7 @@
         <input type="text" name="failure" placeholder="Причина..." id="failure" list="failures" class="form-control"><br/>
 
         <div>
-            <label for="telephone2 ">Дополнительный комментарий
+            <label for="comment-failure">Дополнительный комментарий
                 <textarea name="comment" placeholder="Комментарий..." class="form-control" id="comment-failure"></textarea>
             </label>
         </div>
